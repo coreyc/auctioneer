@@ -1,0 +1,12 @@
+version: '3.7'
+services:
+  redismod:
+    image: redislabs/redismod
+    container_name: redismod
+    volumes:
+      - redis-data:/data
+    ports:
+      - 6379:6379
+
+volumes:
+  redis-data:

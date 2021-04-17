@@ -1,0 +1,17 @@
+{
+  "name": "auctioneer",
+  "version": "1.0.0",
+  "description": "Redis-based auctions",
+  "main": "index.js",
+  "scripts": {
+  },
+  "dependencies": {
+    "ioredis": "4.26.0"
+  },
+  "devDependencies": {
+  },
+  "keywords": [
+    "redis"
+  ],
+  "license": "MIT"
+}

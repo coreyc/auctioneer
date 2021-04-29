@@ -7,6 +7,16 @@ services:
       - redis-data:/data
     ports:
       - 6379:6379
+  redis-insight:
+    image: redislabs/redisinsight
+    container_name: redis-insight
+    ports:
+      - 8001:8001
+  api:
+    image: mhart/alpine-node:16
+    container_name: api
+    ports:
+      - 3001:3001
 
 volumes:
   redis-data:

@@ -1,4 +1,4 @@
-const bootstrap = async (items, redis) => {
+const addInitialAuctionItems = async (items, redis) => {
   for (const item of items) {
     const { id, name, startingBid, currentBid } = item
 
@@ -6,4 +6,6 @@ const bootstrap = async (items, redis) => {
   }
 }
 
-module.exports = bootstrap
+module.exports = {
+  addInitialAuctionItems
+}

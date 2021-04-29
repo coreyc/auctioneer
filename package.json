@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "esm": "3.2.25",
+    "express": "4.17.1",
     "ioredis": "4.26.0"
   },
   "keywords": [

@@ -16,12 +16,14 @@ services:
     build:
       context: ./server/
     container_name: api
-    command: npm start
     volumes:
       - ./server/:/usr/app
       - /usr/app/node_modules
     depends_on:
       - redismod
+    command: npm start
+    environment:
+      - REDIS:redismod
     ports:
       - 3001:3001
   client:

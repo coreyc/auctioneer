@@ -1,5 +1,5 @@
 FROM node:16.0.0
-EXPOSE 3000
+EXPOSE 3001
 
 RUN mkdir -p /usr/src/app && chown node: /usr/src/app
 

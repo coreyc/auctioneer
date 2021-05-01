@@ -3,7 +3,6 @@
 .eslintrc.js
 build/
 node_modules/
-.circleci/
 docker-compose.yml
 .env
 npm-debug.log

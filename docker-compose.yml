@@ -26,6 +26,20 @@ services:
       - REDIS:redismod
     ports:
       - 3001:3001
+  bidding-service:
+    build:
+      context: ./bidding-service/
+    container_name: bidding-service
+    volumes:
+      - ./bidding-service/:/usr/app
+      - /usr/app/node_modules
+    depends_on:
+      - redismod
+    command: npm run start:watch
+    environment:
+      - REDIS:redismod
+    ports:
+      - 3002:3002
   order-service:
     build:
       context: ./order-service/

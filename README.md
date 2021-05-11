@@ -3,7 +3,8 @@ First, make sure Docker is installed.
 
 Then, to spin up the rest of the project:
 
-`docker-compose up --build`
+`docker-compose build` (first time running project)
+`docker-compose up`
 
 ## Load auction items
 To load the starting set of auction items:

@@ -1,6 +1,6 @@
 const { fetchDb } = require('../db')
 
-const getItemById = async (itemId) => {
+const getItemById = (itemId) => {
   return fetchDb(itemId)
 }
 

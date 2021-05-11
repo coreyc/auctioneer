@@ -13,16 +13,16 @@ function HighestBid() {
   useEffect(() => {
 
     // socket.emit('hi', 'asdfasdf')
-    socket.on('hi', (data) => {
+    socket.on('highest-bid', (data) => {
       console.log('hit')
       console.log(data)
-      setResponse(data)
+      setResponse(data.highestBid)
     })
   }, [])
  
   return (
     <p>
-      {response}
+      ${response}
     </p>
   )
 }

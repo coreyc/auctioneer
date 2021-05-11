@@ -26,12 +26,11 @@ const io = socketIo(server)
 
 io.on('connection', (socket) => {
   console.log('new socketio connection')
-  setInterval(() => {
-    console.log('hit')
-    socket.emit('hi', 'hi')
-  }, 2000)
+  // setInterval(() => {
+  //   console.log('hit')
+  //   socket.emit('hi', 'hi')
+  // }, 2000)
 })
 
-module.exports = {
-  app
-}
+// hacky, TODO: don't do this :)
+global.io = io

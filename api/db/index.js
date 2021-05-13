@@ -1,5 +1,7 @@
-const { fetchDb } = require('./redis-json.db')
+const { setItem, fetchById, fetchAll } = require('./redis-json.db')
 
 module.exports = {
-  fetchDb
+  setItem,
+  fetchById,
+  fetchAll
 }

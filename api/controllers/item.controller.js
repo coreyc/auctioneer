@@ -1,6 +1,6 @@
 const { itemService } = require('../services')
 
-const { getItemById } = itemService
+const { getItemById, getAllItems } = itemService
 
 const getItem = async (req, res, next) => {
   const {itemId} = req.query
@@ -14,6 +14,18 @@ const getItem = async (req, res, next) => {
   }
 }
 
+const getItems = async (req, res, next) => {
+  try {
+    const items = await getAllItems()
+    res.send(items)
+    next()
+  } catch(err) {
+    console.error(err)
+    res.sendStatus(500) && next(err)
+  }
+}
+
 module.exports = {
-  getItem
+  getItem,
+  getItems
 }

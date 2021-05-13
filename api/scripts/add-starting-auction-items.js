@@ -1,7 +1,6 @@
-const redis = require('../redis')
+const { setItem } = require('../db')
 const auctionItems = require('../starting-auction-items')
 
 for (const auctionItem of auctionItems) {
-  const {id, ...auctionItemData} = auctionItem
-  await redis.call('JSON.SET', `item.${id}`, '.', JSON.stringify(auctionItemData))
+  await setItem(auctionItem)
 }

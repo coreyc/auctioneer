@@ -7,6 +7,8 @@ Then, to spin up the rest of the project:
 
 `docker-compose up`
 
+The application/UI loads at `http://localhost:3000/`
+
 ## Load auction items
 To load the starting set of auction items:
 

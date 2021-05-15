@@ -1,8 +1,18 @@
-const IORedis = require('ioredis')
-const dotenv = require('dotenv')
+const { subscribe } = require('./streams-client')
 
-dotenv.config()
+const getLatestBid = () => {
+  const workerFunction = (data) => {
+    console.log('data from workerFunction', data)
+    io.emit('highest-bid', data.newBid)
+  }
 
-const redis = new IORedis(`//${process.env.REDIS}:6379`)
+  subscribe({
+    groupName: 'bid-subscriber-consumer-group',
+    streamName: 'bid-stream',
+    readTimeout: 20,
+    workerFunction
+  })
+}
 
-
+// immediately call to start watching bids
+getLatestBid()

@@ -4,14 +4,17 @@
   "description": "Stream subscriber",
   "main": "index.js",
   "scripts": {
-    "start": "NODE_ENV=development node -r esm index.js",
-    "start:watch": "NODE_ENV=development nodemon -r esm index.js"
+    "start": "NODE_ENV=development node -r esm app.js",
+    "start:watch": "NODE_ENV=development nodemon -r esm app.js"
   },
   "dependencies": {
+    "common-tags": "^1.8.0",
+    "cors": "^2.8.5",
     "dotenv": "8.2.0",
     "esm": "3.2.25",
     "express": "4.17.1",
-    "ioredis": "4.26.0"
+    "ioredis": "4.26.0",
+    "socket.io": "4.0.2"
   },
   "keywords": [
     "redis"

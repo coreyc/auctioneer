@@ -18,18 +18,10 @@ app.use('/api', routes)
 const server = http.createServer(app)
 server.listen(3001, () => console.log('Example app listening on port 3001!'))
 
-const options = {
-  cors: true,
-  origins: ['http://127.0.0.1:3000']
-}
 const io = socketIo(server)
 
 io.on('connection', (socket) => {
   console.log('new socketio connection')
-  // setInterval(() => {
-  //   console.log('hit')
-  //   socket.emit('hi', 'hi')
-  // }, 2000)
 })
 
 // hacky, TODO: don't do this :)

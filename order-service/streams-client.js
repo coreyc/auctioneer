@@ -64,6 +64,21 @@ const deserialize = (streamData) => {
   })
 }
 
+const formatEventObject = (eventObject) => {
+  const prefix = eventObject && eventObject.type ? META_PREFIX : PAYLOAD_PREFIX
+  const eventObjectFormatted = {}
+
+  for (const [key, value] of Object.entries(eventObject)) {
+    eventObjectFormatted[`${prefix}-${key}`] = value
+  }
+
+  return eventObjectFormatted
+}
+
+const combineEventData = (eventMeta, eventPayload) => {
+  return { ...formatEventObject(eventMeta), ...formatEventObject(eventPayload) }
+}
+
 const isStreamCreatedButWithoutItems = (streamData) => {
   return streamData[
     REDIS_ARRAY_POSITIONS.streamRoot
@@ -99,12 +114,13 @@ const createConsumerGroup = (streamName, groupName) => {
   return redis.xgroup('CREATE', streamName, groupName, '$', 'MKSTREAM')
 }
 
-const publish = ({ streamName, maxStreamLength, eventPayload }) => {
+const publish = ({ streamName, maxStreamLength, eventMeta, eventPayload }) => {
+  const event = combineEventData(eventMeta, eventPayload)
 
   return add({
     streamName,
     maxStreamLength,
-    formattedData: mapObjToStringArray(eventPayload),
+    formattedData: mapObjToStringArray(event),
   })
 }
 

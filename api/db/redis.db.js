@@ -26,8 +26,13 @@ const fetchAll = async () => {
   return Promise.all(itemIds.map((id) => fetchById(id)))
 }
 
+const getLastItemFromStream = (streamName) => {
+  return redis.xrevrange(streamName, '+', '-', 'COUNT', '1')
+}
+
 module.exports = {
   setItem,
   fetchById,
-  fetchAll
+  fetchAll,
+  getLastItemFromStream
 }

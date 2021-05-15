@@ -1,4 +1,5 @@
-import React, { useState } from "react"
+import React, { useState } from 'react'
+import { useForm } from 'react-hook-form'
 
 export default function PlaceBid() {
   const [state, setState] = useState({
@@ -14,7 +15,6 @@ export default function PlaceBid() {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    console.log(state)
 
     fetch('http://localhost:3001/api/bid',
       {

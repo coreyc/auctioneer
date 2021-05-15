@@ -1,11 +1,17 @@
-const IORedis = require('ioredis')
-const dotenv = require('dotenv')
-
-dotenv.config()
-
-const redis = new IORedis(`//${process.env.REDIS}:6379`)
+const { subscribe } = require('./streams-client')
 
 // subscribe to item-ordered event stream
+const workerFunction = (data) => {
+  console.log('data from order-service workerFunction', data)
+
+}
+
+subscribe({
+  groupName: 'order-subscriber-consumer-group',
+  streamName: 'order-stream',
+  readTimeout: 20,
+  workerFunction
+})
 
 // add some made up logic to:
 // (log out for each of these)

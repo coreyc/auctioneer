@@ -22,12 +22,14 @@ function HighestBid() {
   }, [])
  
   return (
-    <>
-      <p>
+    <div className="card">
+      <p className="price">
+        Item name: Golf club set <br></br>
+        Item condition: Used, Very Good <br></br>
         Current highest bid: ${response}
       </p>
     <PlaceBid />
-    </>
+    </div>
   )
 }
 

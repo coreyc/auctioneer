@@ -46,8 +46,13 @@
 }
 
 .price {
-  color: grey;
+  color: black;
   font-size: 22px;
+}
+
+span .highest-bid-price {
+  color: blue;
+  font-size: 30px;
 }
 
 .card button {
@@ -60,6 +65,7 @@
   cursor: pointer;
   width: 100%;
   font-size: 18px;
+  margin-top: 10px;
 }
 
 .card button:hover {

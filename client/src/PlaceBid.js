@@ -15,12 +15,22 @@ export default function PlaceBid() {
   const handleSubmit = (event) => {
     event.preventDefault()
     console.log(state)
+
+    fetch('http://localhost:3001/api/bid',
+      {
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        method: 'POST',
+        body: JSON.stringify({newBid: state.bid})
+    })
   }
 
   return(
     <form onSubmit={handleSubmit}>
     <div className="form-control">
-      <label>Your bid</label>
+      <label className="price">Your bid: </label>
       <input
         type="string"
         name="bid"

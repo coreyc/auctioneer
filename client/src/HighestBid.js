@@ -12,19 +12,19 @@ function HighestBid() {
   const [response, setResponse] = useState('')
 
   useEffect(() => {
+    console.log('useeffect hit')
+    socket.on('highest-bid', (bid) => {
+      console.log('bid received from socket (on client):', bid)
+      setResponse(bid)
 
-    // socket.emit('hi', 'asdfasdf')
-    socket.on('highest-bid', (data) => {
-      console.log('hit')
-      console.log(data)
-      setResponse(data.highestBid)
+      return
     })
   }, [])
  
   return (
     <>
       <p>
-        ${response}
+        Current highest bid: ${response}
       </p>
     <PlaceBid />
     </>

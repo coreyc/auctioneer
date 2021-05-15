@@ -166,7 +166,7 @@ const subscribe = async ({
         try {
           const { id, ...data } = event
 
-          await workerFunction({ ...data })
+          workerFunction({ ...data })
           await ack({ streamName, groupName, id })
           readId = id
         } catch (e) {

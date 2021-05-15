@@ -1,0 +1,22 @@
+{
+  "app_name": "Auctioneer - Redis item bidding app",
+  "description": "Showcases using Redis Streams and the RedisJson module, allowing you to bid on items in real-time",
+  "type": "Full App",
+  "contributed_by": "Community",
+  "repo_url": "https://github.com/coreyc/auctioneer",
+  "download_url": "https://github.com/coreyc/auctioneer/archive/refs/heads/master.zip",
+  "hosted_url": "",
+  "quick_deploy": "false",
+  "deploy_buttons": [],
+  "language": ["JavaScript"],
+  "redis_commands": ["JSON_GET", "JSON_SET", "HGETALL", "HSET", "HGET", "HDEL", "HINCRBY", "DEL", "SCAN"],
+  "redis_features": ["rejson", "streams"],
+  "redis_modules": ["redis-rejson"],
+  "app_image_urls": [
+    "https://github.com/redis-developer/basic-redis-shopping-chart-nodejs/blob/main/preview.png?raw=true"
+  ],
+  "youtube_url": "",
+  "special_tags": [],
+  "verticals": ["Financial"],
+  "markdown": "https://raw.githubusercontent.com/redislabs-training/redis-sitesearch/master/README.md"
+}

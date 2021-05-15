@@ -19,6 +19,29 @@ For demo purposes, the bidding is hardcoded to end 30 seconds after the API star
 
 `docker-compose restart api`
 
+## Redis commands
+api:
+- postBidToStream (Lua script):
+  - `XREVRANGE streamName + - COUNT 1` (gets last item in stream)
+  - `XADD streamName MAXLEN ~ 1000 * newBid newBidValue` (adds latest/highest bid to the bid-stream)
+- setItem:
+  - `JSON.SET item.${id} . item`
+- fetchById:
+  - `JSON.GET item.${id}`
+- setInTracking:
+  - `HSET items-tracking id:${id} id`
+- getFromTracking:
+  - `HGETALL items-tracking`
+- getLastItemFromStream:
+  - `XREVRANGE streamName + - COUNT 1`
+
+common (`streams-client.js`):
+- `XACK streamName groupName id`
+- `XADD streamName MAXLEN ~ maxStreamLength * formattedData`
+- `XREADGROUP GROUP groupName consumerName BLOCK blockTime STREAMS streamName id)`
+- `XREADGROUP GROUP groupName consumerName COUNT count STREAMS streamName id)`
+- `XGROUP CREATE streamName groupName $ MKSTREAM`
+
 ## Application Architecture
 
 

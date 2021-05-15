@@ -9,7 +9,7 @@
   "quick_deploy": "false",
   "deploy_buttons": [],
   "language": ["JavaScript"],
-  "redis_commands": ["JSON_GET", "JSON_SET", "HGETALL", "HSET", "HGET", "HDEL", "HINCRBY", "DEL", "SCAN"],
+  "redis_commands": ["JSON_GET", "JSON_SET", "HGETALL", "HSET", "XREVRANGE", "XADD", "XACK", "XREADGROUP", "XGROUP"],
   "redis_features": ["rejson", "streams"],
   "redis_modules": ["redis-rejson"],
   "app_image_urls": [

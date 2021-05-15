@@ -99,7 +99,7 @@ const ack = ({ streamName, groupName, id }) => {
 }
 
 const add = ({ streamName, maxStreamLength, formattedData }) => {
-  return redis.xadd(streamName, 'MAXLEN', '~', maxStreamLength, '*', formattedData)
+  return redis.xadd(streamName, 'MAXLEN', '~', maxStreamLength || 1000, '*', formattedData)
 }
 
 const readFromConsumerGroup = ({
@@ -114,12 +114,12 @@ const createConsumerGroup = (streamName, groupName) => {
   return redis.xgroup('CREATE', streamName, groupName, '$', 'MKSTREAM')
 }
 
-const publish = ({ streamName, eventMeta, eventPayload }) => {
+const publish = ({ streamName, maxStreamLength, eventMeta, eventPayload }) => {
   const event = combineEventData(eventMeta, eventPayload)
 
   return add({
     streamName,
-    maxStreamLength: this.maxStreamLength,
+    maxStreamLength,
     formattedData: mapObjToStringArray(event),
   })
 }

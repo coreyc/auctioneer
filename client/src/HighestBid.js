@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import socketIOClient from 'socket.io-client'
+import PlaceBid from './PlaceBid'
 
 const socket = socketIOClient('http://127.0.0.1:3001', {
   transports: ['websocket']
@@ -21,9 +22,12 @@ function HighestBid() {
   }, [])
  
   return (
-    <p>
-      ${response}
-    </p>
+    <>
+      <p>
+        ${response}
+      </p>
+    <PlaceBid />
+    </>
   )
 }
 

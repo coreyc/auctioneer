@@ -1,4 +1,4 @@
-function BiddingItem() {
+function BiddingItem({ props }) {
   return (
     <div className="card">
       <img src="" className="product-image" />

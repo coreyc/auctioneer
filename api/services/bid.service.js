@@ -1,7 +1,10 @@
 const { subscribe } = require('../streams-client')
+const redis = require('../redis')
 
-const postBid = () => {
-  // call lua script?
+const postBidToStream = async (newBid) => {
+  const res = await redis.postBidToStream('bid-stream', newBid)
+  console.log(res)
+  return res
 }
 
 const getLatestBid = () => {
@@ -21,5 +24,5 @@ const getLatestBid = () => {
 getLatestBid()
 
 module.exports = {
-  postBid
+  postBidToStream
 }

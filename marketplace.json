@@ -13,10 +13,10 @@
   "redis_features": ["rejson", "streams"],
   "redis_modules": ["redis-rejson"],
   "app_image_urls": [
-    "https://github.com/redis-developer/basic-redis-shopping-chart-nodejs/blob/main/preview.png?raw=true"
+    "https://github.com/coreyc/auctioneer/blob/master/auctioneer-app-screenshot.png"
   ],
   "youtube_url": "",
   "special_tags": [],
   "verticals": ["Financial"],
-  "markdown": "https://raw.githubusercontent.com/redislabs-training/redis-sitesearch/master/README.md"
+  "markdown": "https://raw.githubusercontent.com/coreyc/auctioneer/master/README.md"
 }

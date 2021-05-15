@@ -3,6 +3,7 @@ const { getLastItemFromStream } = require('../db')
 const redis = require('../redis')
 
 const postBidToStream = (newBid) => {
+  console.log(newBid)
   return redis.postBidToStream('bid-stream', newBid)
 }
 

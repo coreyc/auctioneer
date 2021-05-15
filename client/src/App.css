@@ -72,6 +72,10 @@ span .highest-bid-price {
   opacity: 0.7;
 }
 
+.validation {
+  color: red;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

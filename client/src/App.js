@@ -1,12 +1,11 @@
 import './App.css'
-import Items from './Items'
-import HighestBid from './HighestBid'
+import Item from './Item'
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <HighestBid />
+        <Item />
       </header>
     </div>
   )

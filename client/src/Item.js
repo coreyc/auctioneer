@@ -10,7 +10,7 @@ const apiSocket = socketIOClient('http://127.0.0.1:3001', {
   transports: ['websocket']
 })
 
-function HighestBid() {
+function Item() {
   const [response, setResponse] = useState('')
   const [biddingFinishedresponse, setBiddingFinishedResponse] = useState('')
   const [itemData, setItemData] = useState('')
@@ -64,4 +64,4 @@ function HighestBid() {
   )
 }
 
-export default HighestBid
+export default Item

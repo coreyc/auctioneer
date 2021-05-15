@@ -40,18 +40,6 @@ services:
       - REDIS:redismod
     ports:
       - 3002:3002
-  order-service:
-    build:
-      context: ./order-service/
-    container_name: order-service
-    volumes:
-      - ./order-service/:/usr/app
-      - /usr/app/node_modules
-    depends_on:
-      - redismod
-    command: npm run start:watch
-    environment:
-      - REDIS:redismod
   client:
     build:
       context: ./client/

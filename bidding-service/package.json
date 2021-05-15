@@ -1,5 +1,5 @@
 {
-  "name": "order-service",
+  "name": "bidding-service",
   "version": "1.0.0",
   "description": "Stream subscriber",
   "main": "index.js",
